@@ -7,63 +7,75 @@
  *
  * @author Bruno
  */
+public class Mensagem
+{
 
-public class Mensagem {
-    private String      titulo, mensagem;
-    private Usuario     remetente, destinatario;
-    
-    public Mensagem(String titulo, String mensagem, Usuario remetente, Usuario destinatario) {
+    private String titulo, mensagem;
+    private Usuario remetente, destinatario;
+
+    public Mensagem(String titulo, String mensagem, Usuario remetente, Usuario destinatario)
+    {
         setTitulo(titulo);
         setMensagem(mensagem);
         setRemetente(remetente);
         setDestinatario(destinatario);
     }
-    
-    public String getTitulo() {
+
+    public String getTitulo()
+    {
         return titulo;
     }
-    
-    public String getMensagem() {
+
+    public String getMensagem()
+    {
         return mensagem;
     }
-    
-    public Usuario getRemetente() {
+
+    public Usuario getRemetente()
+    {
         return remetente;
     }
-    
-    public Usuario getDestinatario() {
+
+    public Usuario getDestinatario()
+    {
         return destinatario;
     }
-    
-    public void setTitulo(String titulo) {
+
+    public void setTitulo(String titulo)
+    {
         this.titulo = titulo;
     }
-    
-    public void setMensagem(String mensagem) {
+
+    public void setMensagem(String mensagem)
+    {
         this.mensagem = mensagem;
     }
-    
-    public void setRemetente(Usuario remetente) {
+
+    public void setRemetente(Usuario remetente)
+    {
         this.remetente = remetente;
     }
-    
-    public void setDestinatario(Usuario destinatario) {
+
+    public void setDestinatario(Usuario destinatario)
+    {
         this.destinatario = destinatario;
     }
-    
+
     // TODO
-    public void responder(Mensagem mensagem) {
-        
+    public void responder(Mensagem mensagem)
+    {
     }
-    
-    public void deletar() {
+
+    public void deletar()
+    {
         destinatario.removeMensagemRecebida(this);
-        
+
         remetente.removeMensagemEnviada(this);
     }
-    
+
     // TODO
-    public boolean enviaMensagem(String destinatario, String titulo, String mensagem) {
+    public boolean enviaMensagem(String destinatario, String titulo, String mensagem)
+    {
         return false; // for while
     }
 }
