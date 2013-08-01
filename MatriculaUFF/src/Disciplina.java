@@ -1,22 +1,44 @@
 
+import java.util.ArrayList;
+
+
 /**
  *
  * @author Breno W. Carvalho, C. Bruno Garcia, Ian Villar, Rafael Grillo
  */
 public class Disciplina
 {
+    private String nome, ementa, codigo;
+    private ArrayList<Curso> cursos;
 
-    private String nome, ementa;
-
-    public Disciplina(String nome)
+    public Disciplina(String nome, String codigo)
     {
         this.nome = nome;
+        this.codigo = codigo;
+        inicializaEstruturas();
     }
 
-    public Disciplina(String nome, String ementa)
+    public Disciplina(String nome, String ementa, String codigo)
     {
         this.nome = nome;
         this.ementa = ementa;
+        this.codigo = codigo;
+        inicializaEstruturas();
+    }
+    
+    private void inicializaEstruturas()
+    {
+        cursos = new ArrayList<Curso>();
+    }
+    
+    public ArrayList<Curso> getCursos()
+    {
+        return cursos;
+    }
+    
+    public void adicionaCurso(Curso c)
+    {
+        cursos.add(c);
     }
 
     public String getNome()

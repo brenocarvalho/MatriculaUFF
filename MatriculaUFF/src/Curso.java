@@ -15,14 +15,21 @@ public class Curso
     private String nome, codigo;
     private List<Matricula> mats;
     private Map<Aluno, Matricula> emersos;
+    private ArrayList<Disciplina> disciplinas;
 
     public Curso(String nome, String codigo)
     {
         setNome(nome);
         setCodigo(codigo);
         //TODO editar esta pare para encapsular mais, i.e., fazer metodos para instanciar mats e alunos.
+        inicializaEstruturas();
+    }
+    
+    private void inicializaEstruturas()
+    {
         mats = new ArrayList<Matricula>();
         emersos = new HashMap<Aluno, Matricula>();
+        disciplinas = new ArrayList<Disciplina>();
     }
 
     public String getNome()
@@ -182,5 +189,17 @@ public class Curso
             nomes[i++] = alunos.next().getNome();
         }
         return nomes;
+    }
+    
+    public void adicionaDisciplina(Disciplina d)
+    {
+        disciplinas.add(d);
+        d.adicionaCurso(this);
+    }
+    
+    
+    public ArrayList<Disciplina> getDisciplinas()
+    {
+        return disciplinas;
     }
 }
