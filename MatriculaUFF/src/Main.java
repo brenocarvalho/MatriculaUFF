@@ -12,62 +12,7 @@ public class Main
 {
     /**
      * @param args the command line arguments
-     * TODO Pessoal temos que conferir esta classe e refatorar seus métodos
      */
-    private String nome, ementa, codigo;
-    private ArrayList<Curso> cursos;
-
-    public Disciplina(String nome, String codigo)
-    {
-        this.nome = nome;
-        this.codigo = codigo;
-        inicializaEstruturas();
-    }
-
-    public Disciplina(String nome, String ementa, String codigo)
-    {
-        this.nome = nome;
-        this.ementa = ementa;
-        this.codigo = codigo;
-        inicializaEstruturas();
-    }
-    
-    private void inicializaEstruturas()
-    {
-        cursos = new ArrayList<Curso>();
-    }
-    
-    public ArrayList<Curso> getCursos()
-    {
-        return cursos;
-    }
-    
-    public void adicionaCurso(Curso c)
-    {
-        cursos.add(c);
-    }
-
-    public String getNome()
-    {
-        return nome;
-    }
-
-    public void setNome(String nome)
-    {
-        this.nome = nome;
-    }
-
-    public String getEmenta()
-    {
-        return ementa;
-    }
-
-    public void setEmenta(String ementa)
-    {
-        this.ementa = ementa;
-
-
-
     public static void main(String[] args) throws IOException
     {
         BufferedReader  br = new BufferedReader(new InputStreamReader(System.in));
@@ -80,9 +25,8 @@ public class Main
         adicionarDadosIniciais();
         
         boolean exit = false;
-        String opt = "0";
-        while(!opt.equals("-1"))
-        {
+        
+        while(!exit) {
             switch(mainMenu.run()) {
                 case 0:
                     break;
@@ -98,7 +42,6 @@ public class Main
                     System.out.print("Erro: menu sem oções\n");
                     exit = true;
             }
-        }
         }
         
         System.out.println("Fim do Programa");

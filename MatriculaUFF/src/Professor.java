@@ -81,7 +81,7 @@ public class Professor {
         turmas.remove(turma);
     }
     
-    public Evento criaEvento(Date data, String nome, String descricao, float peso) {
+    public Evento criaEvento(Date data, Turma turma, String nome, String descricao, int peso) {
        return new Evento(nome, descricao, peso, turma, data);
     }
 }
