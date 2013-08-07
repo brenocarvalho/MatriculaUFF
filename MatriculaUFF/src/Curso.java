@@ -21,7 +21,7 @@ public class Curso
     {
         setNome(nome);
         setCodigo(codigo);
-        //TODO editar esta pare para encapsular mais, i.e., fazer metodos para instanciar mats e alunos.
+        //TODO editar esta parte para encapsular mais, i.e., fazer metodos para instanciar mats e alunos.
         inicializaEstruturas();
     }
     

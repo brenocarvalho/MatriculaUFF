@@ -3,11 +3,28 @@
  *
  * @author Breno W. Carvalho, C. Bruno Garcia, Ian Villar, Rafael Grillo
  */
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Turma
 {
 
-    private String codigo, horario;
-    private int ano, periodo;
+    private String                  codigo, horario;
+    private int                     ano, periodo;
+    private Professor               professor;
+    private Map<Evento, Avaliação>  eventos;
+    private List<Material>          materiais;
+    
+    public Turma(Professor professor) {
+        setProfessor(professor);
+        
+        eventos = new HashMap();
+        
+        materiais = new ArrayList();
+    }
 
     public String getCodigo()
     {
@@ -47,5 +64,13 @@ public class Turma
     public void setPeriodo(int periodo)
     {
         this.periodo = periodo;
+    }
+    
+    public Professor getProfessor() {
+        return professor;
+    }
+    
+    public void setProfessor(Professor professfor) {
+        this.professor = professor;
     }
 }
