@@ -8,7 +8,7 @@ import java.util.Map;
  *
  * @author Breno W. Carvalho, C. Bruno Garcia, Ian Villar, Rafael Grillo
  */
-public class Aluno
+public class Aluno extends Usuario
 {
 
     private String nome, cpf, rg;
@@ -17,8 +17,10 @@ public class Aluno
     private Map<Curso, Matricula> cursados;
 
     //public Aluno(String nome, Matricula matricula, Curso curso){
-    public Aluno(String nome, Matricula matricula)
+    public Aluno(String nome, Matricula matricula, String login, String senha)
     {
+        super(login, senha);
+        
         setNome(nome);
         setMatricula(matricula);
         //TODO encapsular esta parte
