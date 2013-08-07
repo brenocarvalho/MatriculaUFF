@@ -38,6 +38,11 @@ public class Material {
         this.filePath = filepath;
     }
     
+    public String getFilePath()
+    {
+        return filePath;
+    }
+    
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
@@ -52,12 +57,24 @@ public class Material {
         return false;
     }
     
-    public void download() {
+    public void download() 
+    {
         // TODO
     }
     
-    public boolean abrir() {
-        // TODO
-        return false;
+    public boolean abrir() 
+    {
+        try 
+        {
+            Process p = Runtime.getRuntime().exec("cmd.exe /c " + getFilePath());
+            p.waitFor();
+            return true;
+        } 
+        
+        catch (Exception ex) 
+        {
+            System.out.println("Arquivo não encontrado.");
+            return false;
+        }
     }
 }

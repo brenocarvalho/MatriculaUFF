@@ -15,7 +15,7 @@ public class Turma
     private String                  codigo, horario;
     private int                     ano, periodo;
     private Professor               professor;
-    private Map<Evento, Avaliação>  eventos;
+    private Map<Evento, Avaliacao>  eventos;
     private List<Material>          materiais;
     
     public Turma(Professor professor) {
@@ -72,5 +72,10 @@ public class Turma
     
     public void setProfessor(Professor professfor) {
         this.professor = professor;
+    }
+    
+    public void addEvento(Evento evento, Avaliacao avaliacao)
+    {
+        eventos.put(evento, avaliacao);
     }
 }

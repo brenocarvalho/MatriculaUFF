@@ -7,13 +7,15 @@ public class Evento {
     private String      nome, descricao;
     private int         peso;
     private Turma       turma;
-    private Avaliação   avaliacao;
+    private Avaliacao   avaliacao;
+    private Date data;
     
-    public Evento(String nome, String descricao, int peso, Turma turma) {
+    public Evento(String nome, String descricao, int peso, Turma turma, Date data) {
         setNome(nome);
         setDescricao(descricao);
         setPeso(peso);
         setTurma(turma);
+        setDate(data);
         
         avaliacao = null;
     }
@@ -34,7 +36,7 @@ public class Evento {
         return turma;
     }
     
-    public Avaliação getAvaliacao() {
+    public Avaliacao getAvaliacao() {
         return avaliacao;
     }
     
@@ -54,7 +56,17 @@ public class Evento {
         this.turma = turma;
     }
     
-    public void setAvaliacao(Avaliação avaliacao) {
+    public void setAvaliacao(Avaliacao avaliacao) {
         this.avaliacao = avaliacao;
+    }
+    
+    public void setDate(Date data)
+    {
+        this.data = data;
+    }
+    
+    public Date getDate()
+    {
+        return data;
     }
 }

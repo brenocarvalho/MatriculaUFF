@@ -70,15 +70,35 @@ public class Main
 
     public static void main(String[] args) throws IOException
     {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));    
+        BufferedReader  br = new BufferedReader(new InputStreamReader(System.in));
+        Menu            mainMenu = new Menu();
+        
+        mainMenu.addOpcao("Opção 1");
+        mainMenu.addOpcao("Opção 2");
+        mainMenu.addOpcao("Sair");
 
         adicionarDadosIniciais();
         
+        boolean exit = false;
         String opt = "0";
         while(!opt.equals("-1"))
         {
-            
-            opt = br.readLine(); 
+            switch(mainMenu.run()) {
+                case 0:
+                    break;
+                    
+                case 1:
+                    break;
+                    
+                case 2:
+                    exit = true;
+                    break;
+                    
+                default:
+                    System.out.print("Erro: menu sem oções\n");
+                    exit = true;
+            }
+        }
         }
         
         System.out.println("Fim do Programa");

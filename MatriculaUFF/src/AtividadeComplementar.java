@@ -8,8 +8,14 @@ public class AtividadeComplementar
 
     private String nome;
     private int cargaHoraria;
+    
+    public AtividadeComplementar(String nome, int cargaHoraria)
+    {
+        this.nome = nome;
+        this.cargaHoraria = cargaHoraria;
+    }
 
-    public String getNome()
+    public String getNome() 
     {
         return nome;
     }

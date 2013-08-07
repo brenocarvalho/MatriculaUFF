@@ -61,6 +61,14 @@ public class Professor {
         return turmas.get(index);
     }
     
+    public Turma getTurma(String codigo)
+    {
+        for(Turma t : turmas)
+            if(t.getCodigo().equalsIgnoreCase(codigo))
+                return t;
+        return null;
+    }
+    
     public void addTurma(Turma turma) {
         turmas.add(turma);
     }
@@ -74,7 +82,6 @@ public class Professor {
     }
     
     public Evento criaEvento(Date data, String nome, String descricao, float peso) {
-        // TODO
-        return null;
+       return new Evento(nome, descricao, peso, turma, data);
     }
 }

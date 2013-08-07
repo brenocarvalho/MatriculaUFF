@@ -69,9 +69,4 @@ public class Mensagem
         remetente.removeMensagemEnviada(this);
     }
 
-    // TODO
-    public boolean enviaMensagem(String destinatario, String titulo, String mensagem)
-    {
-        return false; // for while
-    }
 }
