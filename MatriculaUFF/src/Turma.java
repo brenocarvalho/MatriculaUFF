@@ -17,12 +17,13 @@ public class Turma
     private Professor               professor;
     private Map<Evento, Avaliacao>  eventos;
     private List<Material>          materiais;
+    private Disciplina              disciplina;
     
-    public Turma(Professor professor) {
+    public Turma(Professor professor, Disciplina disciplina) {
         setProfessor(professor);
         
         eventos = new HashMap();
-        
+        this.disciplina = disciplina;
         materiais = new ArrayList();
     }
 
@@ -77,5 +78,9 @@ public class Turma
     public void addEvento(Evento evento, Avaliacao avaliacao)
     {
         eventos.put(evento, avaliacao);
+    }
+
+    Disciplina getDisciplina() {
+        return this.disciplina;
     }
 }

@@ -1,11 +1,9 @@
-
 /**
  *
  * @author Breno W. Carvalho, C. Bruno Garcia, Ian Villar, Rafael Grillo
  */
 public class AtividadeComplementar
 {
-
     private String nome;
     private int cargaHoraria;
     
@@ -20,7 +18,7 @@ public class AtividadeComplementar
         return nome;
     }
 
-    public void setNome(String nome)
+    public void setNome(String nome) 
     {
         this.nome = nome;
     }

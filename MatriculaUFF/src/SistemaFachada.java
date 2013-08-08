@@ -1,6 +1,9 @@
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 /*
  * To change this template, choose Tools | Templates
@@ -14,11 +17,15 @@ import java.util.Map;
 public class SistemaFachada 
 {
     public static SistemaFachada uniqueInstance = null;
+    private Scanner in;
+    private int ano, periodo;
     private Map<String, Usuario> usuarios;
     
     private SistemaFachada()
     {
         usuarios = new HashMap<String, Usuario>();
+        in = new Scanner(System.in);
+        //TODO ano = system.getYear();
     }
     
     public static synchronized SistemaFachada getInstance()
@@ -27,6 +34,12 @@ public class SistemaFachada
             uniqueInstance = new SistemaFachada();
         return uniqueInstance;
     }
+    
+    public int getPeriodo(){ return this.periodo;}
+    public int getAno(){ return this.ano;}
+    
+    public void setPeriodo(int periodo){ this.periodo = periodo;}
+    public void setAno(int ano){ this.ano = ano;}
     
     public Usuario logarSistema(String usuario, String senha)
     {
@@ -53,47 +66,96 @@ public class SistemaFachada
         return usuarios.containsKey(usuario);
     }
     
-    public void visualizarInfo(Usuario usuario)
-    {
+    public void visualizarInfo(Aluno aluno)
+    {   
+        System.out.printf("Informaçãoes:\nNome: %s\nCPF: %s\nRG: %s\nMatricula: %s\nCurso Atual: %s\nE-Mail: %s\n"
+                + "Telefone: %s\nEndereço: %s\n", aluno.getNome(), aluno.getCpf(), aluno.getRg(), aluno.getMatricula().getCodigo(), 
+                aluno.getCursoAtual().getNome());
         
+        System.out.println("Deseja editar suas informações? [S/N]");
+        String resp = in.next();
+        
+        if(resp.equalsIgnoreCase("s"))
+            modificaInfo(aluno);
     }
-    
-    public boolean enviarMensagem(String titulo, String texto, String destinatario) {
-        Usuario remet = getUsuarioLogado(),
-                dest = buscaUsuarioPeloLogin(destinatario);
+
+    private void modificaInfo(Aluno aluno) 
+    {
+        System.out.println("Qual informação deseja editar?\n1 - E-Mail\n2 - Endereço\n3 - Telefone");
+        int opt = in.nextInt();
         
-        if(dest == null)
-            return false; // Falhou ao enviar, login não encontrado
-        else {
-            Mensagem msg = remet.criaMensagem(titulo, texto, dest);
-            
-            remet.addMensagemEnviada(msg);
-            dest.addMensagemRecebida(msg);
-            
-            return true;
+        switch(opt)
+        {
+            case 1:        
+                System.out.println("Digite o novo e-mail: ");
+                aluno.setEMail(in.next());
+            break;
+                
+            case 2:
+                System.out.println("Digite o novo endereço: ");
+                aluno.setEndereco(in.next());
+            break;
+                
+            case 3:
+                System.out.println("Digite o novo telefone: ");
+                aluno.setTelefone(in.next());
+            break;
+                
+            default:
+                System.out.println("Opção inválida!!");
         }
     }
     
-    public void visualizarListaDeMensagens() {
-        Usuario user = getUsuarioLogado();
-        
-        for(int i = 0; i < user.getNumeroDeMensagensRecebidas(); ++i) {
-            Mensagem msg = user.getMensagemRecebida(i);
-            
-            if(msg != null) {
-                System.out.print((i + 1) + " - " + msg.getTitulo() + " (de " + msg.getRemetente().getLogin() + "\n" + msg.getMensagem() + "\n\n");
+    public List<Disciplina> visualuzaDisciplinas(Matricula matricula){
+        Turma[] turmas = matricula.getTurmas();
+        List<Disciplina> disc = new ArrayList();
+        for (Turma t: turmas){
+            disc.add(t.getDisciplina());
+        }
+        return disc;
+    }
+    
+    public List<String> visualizaEmenta(Matricula matricula){
+        Turma[] turmas = matricula.getTurmas();
+        List<String> ementas = new ArrayList();
+        for (Turma t: turmas){
+            ementas.add(t.getDisciplina().getEmenta()+"\nCarga horária: "+t.getDisciplina().getCargaHoraria());
+        }
+        return ementas;
+    }
+    
+    
+    public List<String> visualizaPlanoDeEstudos(Matricula matricula){
+        Turma[] turmas = matricula.getTurmas();
+        List<String> ementas = new ArrayList();
+        for (Turma t: turmas){
+            Disciplina disciplina = t.getDisciplina();
+            if(t.getAno() == this.getAno()  && t.getPeriodo() == this.getPeriodo()){
+                ementas.add(disciplina.getNome()+"\nHorário: "+t.getHorario());
             }
         }
+        return ementas;
     }
     
-    public Usuario getUsuarioLogado() {
-        // Implementar este método
-        return null;
+    public List<String> visualizaHistorico(Matricula matricula){
+        Turma[] turmas = matricula.getTurmas();
+        List<String> ementas = new ArrayList();
+        for (Turma t: turmas){
+            Disciplina disciplina = t.getDisciplina();
+            ementas.add(disciplina.getEmenta()+"\nCarga horária: "+disciplina.getCargaHoraria());
+        }
+        return ementas;
     }
     
-    // Retorna null caso não seja encontrado
-    public Usuario buscaUsuarioPeloLogin(String login) {
-        // Implementar este método
-        return null;
+    
+    
+    public void listarContatos(Usuario usuario)
+    {
+        Usuario[] contatos = usuario.getContatos();
+        
+        System.out.println("Contatos: ");
+        
+        for(int i=0; i<contatos.length; i++)
+            System.out.println("Login: " + contatos[i].getLogin());
     }
 }

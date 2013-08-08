@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -48,7 +47,9 @@ public class Main
     }
 
     public static void adicionarDadosIniciais()
-    {   
+    {
+        Usuario rafa = new Usuario("grillorafael", "120491");
+        
         Curso cc = new Curso("Ciencia da Computacao", "1");
         Curso adm = new Curso("Administracao", "2");
         Curso eng = new Curso("Engenharia", "3");
@@ -65,10 +66,10 @@ public class Main
         
         eng.adicionaDisciplina(calc);
 
-        Aluno rafael = new Aluno("Rafael Grillo Abreu", new Matricula("210311320", cc), "grillorafael", "120491");
-        Aluno ian = new Aluno("Ian Villar", new Matricula("21003203", adm), "ianvillar", "0945683");
-        Aluno cb = new Aluno("Carlos Bruno", new Matricula("21031920", cc), "cbruno", "309008");
-        Aluno breno = new Aluno("Breno Carvalho", new Matricula("210020930", eng), "breno.car", "prolog");
+       /* Aluno rafael = new Aluno("Rafael Grillo Abreu", new Matricula("210311320", cc));
+        Aluno ian = new Aluno("Ian Villar", new Matricula("21003203", adm));
+        Aluno cb = new Aluno("Carlos Bruno", new Matricula("21031920", cc));
+        Aluno breno = new Aluno("Breno Carvalho", new Matricula("210020930", eng)); */
 
         
 

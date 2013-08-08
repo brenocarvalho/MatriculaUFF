@@ -8,7 +8,6 @@
  * @author Bruno
  */
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Usuario
@@ -49,21 +48,14 @@ public class Usuario
         this.senha = senha;
     }
 
-    public boolean login()
-    {
-        return isLogged;
-    }
-    
     public void setLogged(boolean logged)
     {
         this.isLogged = logged;
     }
     
-    // TODO
-    public Usuario buscaPorLogin(String login)
+    public boolean isLogged()
     {
-
-        return null; // for while
+        return isLogged;
     }
 
     // TODO
@@ -94,27 +86,20 @@ public class Usuario
         msgEnviadas.remove(mensagem);
     }
     
-    public int getNumeroDeMensagensRecebidas() {
-        return msgRecebidas.size();
+    public void removerContato(String login)
+    {
+        for(Usuario u : contatos)
+            if(u.getLogin().equalsIgnoreCase(login))
+                contatos.remove(u);
     }
     
-    public int getNumeroDeMensagensEnviadas() {
-        return msgEnviadas.size();
+    public void addContato(Usuario usuario)
+    {
+        contatos.add(usuario);
     }
     
-    public Mensagem getMensagemEnviada(int index) {
-        try {
-            return msgEnviadas.get(index); // achou
-        } catch(IndexOutOfBoundsException e) {
-            return null; // falhou
-        }
-    }
-    
-    public Mensagem getMensagemRecebida(int index) {
-        try {
-            return msgRecebidas.get(index); // deu certo
-        } catch(IndexOutOfBoundsException e) {
-            return null; // falhou
-        }
+    public Usuario[] getContatos()
+    {
+        return (Usuario[]) contatos.toArray();
     }
 }

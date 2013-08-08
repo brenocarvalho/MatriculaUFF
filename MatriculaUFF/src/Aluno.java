@@ -1,7 +1,4 @@
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,18 +8,19 @@ import java.util.Map;
 public class Aluno extends Usuario
 {
 
-    private String nome, cpf, rg;
+    private String nome, cpf, rg, email, endereco, telefone;
     private Matricula mat;
     private Curso cAtual;
     private Map<Curso, Matricula> cursados;
 
-    //public Aluno(String nome, Matricula matricula, Curso curso){
-    public Aluno(String nome, Matricula matricula, String login, String senha)
+    public Aluno(String login, String senha, String nome, Matricula matricula, String email, String endereco, String telefone)
     {
         super(login, senha);
-        
         setNome(nome);
         setMatricula(matricula);
+        setEMail(email);
+        setEndereco(endereco);
+        setTelefone(telefone);
         //TODO encapsular esta parte
         cursados = new HashMap<Curso, Matricula>();
         //cAtual = curso;
@@ -67,6 +65,46 @@ public class Aluno extends Usuario
     public void setMatricula(Matricula mat)
     {
         this.mat = mat;
+    }
+    
+    public void setCursoAtual(Curso curso)
+    {
+        cAtual = curso;
+    }
+    
+    public Curso getCursoAtual()
+    {
+        return cAtual;
+    }
+    
+    public void setEMail(String email)
+    {
+        this.email = email;
+    }
+    
+    public String getEmail()
+    {
+        return email;
+    }
+    
+    public void setEndereco(String endereco)
+    {
+        this.endereco = endereco;
+    }
+    
+    public String getEndereco()
+    {
+        return endereco;
+    }
+    
+    public void setTelefone(String telefone)
+    {
+        this.telefone = telefone;
+    }
+    
+    public String getTelefone()
+    {
+        return telefone;
     }
 
     public void addConcluido(Curso curso, Matricula matricula)

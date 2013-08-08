@@ -1,3 +1,7 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 /**
  *
@@ -60,6 +64,7 @@ public class Mensagem
     // TODO
     public void responder(Mensagem mensagem)
     {
+        
     }
 
     public void deletar()
@@ -69,4 +74,11 @@ public class Mensagem
         remetente.removeMensagemEnviada(this);
     }
 
+    // TODO
+    public boolean enviaMensagem(String destinatario, String titulo, String mensagem)
+    {
+        
+        
+        return false; // for while
+    }
 }

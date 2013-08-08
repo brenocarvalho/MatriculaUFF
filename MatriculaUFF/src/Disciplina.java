@@ -10,6 +10,7 @@ public class Disciplina
 {
     private String nome, ementa, codigo;
     private ArrayList<Curso> cursos;
+    private int carga;
 
     public Disciplina(String nome, String codigo)
     {
@@ -18,10 +19,11 @@ public class Disciplina
         inicializaEstruturas();
     }
 
-    public Disciplina(String nome, String ementa, String codigo)
+    public Disciplina(String nome, String ementa, int cargaHoraria, String codigo)
     {
         this.nome = nome;
         this.ementa = ementa;
+        this.carga = cargaHoraria;
         this.codigo = codigo;
         inicializaEstruturas();
     }
@@ -60,4 +62,14 @@ public class Disciplina
     {
         this.ementa = ementa;
     }
+
+    public int getCargaHoraria() {
+        return this.carga;
+    }
+
+    public void getCargaHoraria(int cargaHoraria){
+        this.carga = cargaHoraria;
+    }
+
+    
 }

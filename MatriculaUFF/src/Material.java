@@ -1,9 +1,9 @@
-
 /**
  *
  * @author Bruno
  */
-public class Material {
+public class Material 
+{
     private String  nome, descricao, filePath;
     private Turma   turma;
     
