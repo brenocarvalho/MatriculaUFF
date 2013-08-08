@@ -36,7 +36,7 @@ public class Menu {
 	public void executa(){
 		while(true){
 			this.atual.mostraOpcoes();
-			System.out.println("\n\nDigite a opção desejada: \n\n");
+				System.out.println("\n\nDigite a opção desejada: \n\n");
 			int opt = in.nextInt();
 			if(!this.atual.selecionaOpcao(opt)){
 				System.out.println("\n\nOpção inválida.\n\n");

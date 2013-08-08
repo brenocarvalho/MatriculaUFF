@@ -1,3 +1,4 @@
+package Dominio;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,17 +15,20 @@ import java.util.Scanner;
  *
  * @author Breno W. Carvalho, C. Bruno Garcia, Ian Villar, Rafael Grillo
  */
+
 public class SistemaFachada 
 {
     public static SistemaFachada uniqueInstance = null;
     private Scanner in;
     private int ano, periodo;
     private Map<String, Usuario> usuarios;
+    public Usuario usuarioLogado;
     
     private SistemaFachada()
     {
         usuarios = new HashMap<String, Usuario>();
         in = new Scanner(System.in);
+        usuarioLogado = null;
         //TODO ano = system.getYear();
     }
     
@@ -34,6 +38,10 @@ public class SistemaFachada
             uniqueInstance = new SistemaFachada();
         return uniqueInstance;
     }
+    
+    
+    public Usuario getUsuarioLogado(){ return this.usuarioLogado;}
+    public void setUsuarioLogado(Usuario usuario){ this.usuarioLogado = usuario;}    
     
     public int getPeriodo(){ return this.periodo;}
     public int getAno(){ return this.ano;}
@@ -166,10 +174,6 @@ public class SistemaFachada
         
         for(int i=0; i<contatos.length; i++)
             System.out.println("Login: " + contatos[i].getLogin());
-    }
-    public Usuario getUsuarioLogado() {
-        // Implementar este método
-        return null;
     }
     
     // Retorna null caso não seja encontrado

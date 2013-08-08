@@ -1,0 +1,24 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author breno
+ */
+package Menu;
+
+public class FinalizaEstadoMenu extends EstadoMenuAbstrato {
+
+    public FinalizaEstadoMenu(){
+	this.setMsg = "--------------------------------\n" +
+	"Volte sempre :D\n"+
+	"--------------------------------"
+    }
+
+   public boolean selecionaOpcao(int opt){
+	exit(0);
+    }
+
+}

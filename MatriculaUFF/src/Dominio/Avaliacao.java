@@ -2,6 +2,9 @@
  *
  * @author Breno W. Carvalho, C. Bruno Garcia, Ian Villar, Rafael Grillo
  */
+
+package Dominio;
+
 public class Avaliacao 
 {
     private int nota;
