@@ -53,7 +53,12 @@ public class Usuario
     {
         return isLogged;
     }
-
+    
+    public void setLogged(boolean logged)
+    {
+        this.isLogged = logged;
+    }
+    
     // TODO
     public Usuario buscaPorLogin(String login)
     {
