@@ -5,8 +5,15 @@
 public class Avaliacao 
 {
     private int nota;
-    Turma turma;
-    Evento evento;
+    private Turma turma;
+    private Evento evento;
+
+    public Turma getTurma(){
+        return turma;
+    }
+    public Evento getEvento(){
+        return evento;
+    }
 
     public int getNota() 
     {

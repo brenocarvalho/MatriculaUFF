@@ -142,7 +142,16 @@ public class SistemaFachada
         List<String> ementas = new ArrayList();
         for (Turma t: turmas){
             Disciplina disciplina = t.getDisciplina();
-            ementas.add(disciplina.getEmenta()+"\nCarga horária: "+disciplina.getCargaHoraria());
+	    int nota = 0, peso, fator = 0;
+	    for(Avaliacao aval: matricula.getAvaliacoes()){
+		if(aval.getTurma() == t){
+		    peso = aval.getEvento().getPeso();
+		    nota = aval.getNota()*peso;
+		    fator += peso;
+		}
+	    }
+	    nota /= fator;
+            ementas.add(disciplina.getEmenta()+"\nCarga horária: "+Integer.toString(disciplina.getCargaHoraria())+"\nNota: "+Integer.toString(nota));
         }
         return ementas;
     }
