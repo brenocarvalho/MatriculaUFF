@@ -75,6 +75,30 @@ public class Usuario
     {
         msgEnviadas.add(mensagem);
     }
+    
+    public int getNumeroDeMensagensRecebidas() {
+        return msgRecebidas.size();
+    }
+    
+    public int getNumeroDeMensagensEnviadas() {
+        return msgEnviadas.size();
+    }
+    
+    public Mensagem getMensagemEnviada(int index) {
+        try {
+            return msgEnviadas.get(index); // achou
+        } catch(IndexOutOfBoundsException e) {
+            return null; // falhou
+        }
+    }
+    
+    public Mensagem getMensagemRecebida(int index) {
+        try {
+            return msgRecebidas.get(index); // deu certo
+        } catch(IndexOutOfBoundsException e) {
+            return null; // falhou
+        }
+    } 
 
     public void removeMensagemRecebida(Mensagem mensagem)
     {

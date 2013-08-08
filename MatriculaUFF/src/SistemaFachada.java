@@ -167,4 +167,14 @@ public class SistemaFachada
         for(int i=0; i<contatos.length; i++)
             System.out.println("Login: " + contatos[i].getLogin());
     }
+    public Usuario getUsuarioLogado() {
+        // Implementar este método
+        return null;
+    }
+    
+    // Retorna null caso não seja encontrado
+    public Usuario buscaUsuarioPeloLogin(String login) {
+        // Implementar este método
+        return null;
+    } 
 }
