@@ -57,4 +57,43 @@ public class SistemaFachada
     {
         
     }
+    
+    public boolean enviarMensagem(String titulo, String texto, String destinatario) {
+        Usuario remet = getUsuarioLogado(),
+                dest = buscaUsuarioPeloLogin(destinatario);
+        
+        if(dest == null)
+            return false; // Falhou ao enviar, login não encontrado
+        else {
+            Mensagem msg = remet.criaMensagem(titulo, texto, dest);
+            
+            remet.addMensagemEnviada(msg);
+            dest.addMensagemRecebida(msg);
+            
+            return true;
+        }
+    }
+    
+    public void visualizarListaDeMensagens() {
+        Usuario user = getUsuarioLogado();
+        
+        for(int i = 0; i < user.getNumeroDeMensagensRecebidas(); ++i) {
+            Mensagem msg = user.getMensagemRecebida(i);
+            
+            if(msg != null) {
+                System.out.print((i + 1) + " - " + msg.getTitulo() + " (de " + msg.getRemetente().getLogin() + "\n" + msg.getMensagem() + "\n\n");
+            }
+        }
+    }
+    
+    public Usuario getUsuarioLogado() {
+        // Implementar este método
+        return null;
+    }
+    
+    // Retorna null caso não seja encontrado
+    public Usuario buscaUsuarioPeloLogin(String login) {
+        // Implementar este método
+        return null;
+    }
 }
